@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>烬野 AI 店长</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">清真烬野 · 原味炭烤</p>
+        <h1>烬野 AI 店长</h1>
+        <p>每天收店后填一次，先把经营数据沉淀下来。</p>
+      </div>
+      <div class="status">V1 · 经营日报</div>
+    </header>
+
+    <section class="card">
+      <h2>今天的经营日报</h2>
+      <form id="dailyForm">
+        <div class="grid">
+          <label>营业额（元）<input id="revenue" type="number" min="0" step="0.01" required /></label>
+          <label>桌数<input id="tables" type="number" min="0" step="1" required /></label>
+          <label>人数<input id="people" type="number" min="0" step="1" required /></label>
+          <label>牛肉销量（公斤）<input id="beefKg" type="number" min="0" step="0.01" required /></label>
+          <label>酒水（元）<input id="drinks" type="number" min="0" step="0.01" value="0" /></label>
+          <label>新客桌数<input id="newTables" type="number" min="0" step="1" value="0" /></label>
+          <label>老客桌数<input id="oldTables" type="number" min="0" step="1" value="0" /></label>
+          <label>抖音客桌数<input id="douyinTables" type="number" min="0" step="1" value="0" /></label>
+          <label>视频播放量<input id="views" type="number" min="0" step="1" value="0" /></label>
+          <label>天气<select id="weather"><option>晴</option><option>阴</option><option>雨</option></select></label>
+        </div>
+        <label>今天顾客印象最深的一句话<textarea id="feedback" rows="3" placeholder="例如：味道不错，服务很好"></textarea></label>
+        <label>今天做了什么内容？<textarea id="content" rows="3" placeholder="例如：发了切肉视频 / 直播3小时 / 没发视频"></textarea></label>
+        <button type="submit">保存今天数据并分析</button>
+      </form>
+    </section>
+
+    <section class="card result" id="analysis" hidden>
+      <h2>AI 店长今日分析</h2>
+      <div id="summary" class="summary"></div>
+      <div id="advice" class="advice"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title"><h2>历史日报</h2><button id="clearData" class="secondary" type="button">清空数据</button></div>
+      <div id="history" class="history"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
